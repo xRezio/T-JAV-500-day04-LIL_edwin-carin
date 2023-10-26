@@ -5,7 +5,6 @@ public class BlueShark extends Shark {
 
     @Override
     public boolean canEat(Animal animal) {
-        if (!super.canEat(animal)) return false;
-        return animal instanceof Shark;
+        return animal instanceof Fish;
     }
 }
