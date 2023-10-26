@@ -3,22 +3,22 @@ public class Animal {
         MAMMAL, FISH, BIRD
     }
 
+    protected String name;
+    protected int legs;
+    protected Type type;
+
     private static int numberOfAnimals = 0;
     private static int numberOfMammals = 0;
     private static int numberOfFish = 0;
     private static int numberOfBirds = 0;
 
-    private String name;
-    private int legs;
-    protected Type type;
-
     protected Animal(String name, int legs, Type type) {
         this.name = name;
         this.legs = legs;
         this.type = type;
-        System.out.println("My name is " + name + " and I am a " + type.toString().toLowerCase() + "!");
 
         numberOfAnimals++;
+
         switch (type) {
             case MAMMAL:
                 numberOfMammals++;
@@ -30,14 +30,12 @@ public class Animal {
                 numberOfBirds++;
                 break;
         }
+
+        System.out.println("My name is " + name + " and I am a " + type.toString().toLowerCase() + "!");
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getLegs() {
@@ -45,44 +43,51 @@ public class Animal {
     }
 
     public String getType() {
-        return type.toString().toLowerCase();
+        switch (type) {
+            case MAMMAL:
+                return "mammal";
+            case FISH:
+                return "fish";
+            case BIRD:
+                return "bird";
+            default:
+                return "unknown";
+        }
     }
 
-    public static void displayAnimalCount() {
-        if (numberOfAnimals > 1) {
+    public static int getNumberOfAnimals() {
+        if (numberOfAnimals == 1) {
+            System.out.println("There is currently 1 animal in our world.");
+        } else {
             System.out.println("There are currently " + numberOfAnimals + " animals in our world.");
-        } else {
-            System.out.println("There is currently " + numberOfAnimals + " animal in our world.");
         }
+        return numberOfAnimals;
     }
 
-    public static void displayMammalsCount() {
-        if (numberOfMammals > 1) {
+    public static int getNumberOfMammals() {
+        if (numberOfMammals == 1) {
+            System.out.println("There is currently 1 mammal in our world.");
+        } else {
             System.out.println("There are currently " + numberOfMammals + " mammals in our world.");
-        } else if (numberOfMammals == 1) {
-            System.out.println("There is currently " + numberOfMammals + " mammal in our world.");
-        } else {
-            System.out.println("There are currently no mammals in our world.");
         }
+        return numberOfMammals;
     }
 
-    public static void displayFishCount() {
-        if (numberOfFish > 1) {
+    public static int getNumberOfFish() {
+        if (numberOfFish == 1) {
+            System.out.println("There is currently 1 fish in our world.");
+        } else {
             System.out.println("There are currently " + numberOfFish + " fish in our world.");
-        } else if (numberOfFish == 1) {
-            System.out.println("There is currently " + numberOfFish + " fish in our world.");
-        } else {
-            System.out.println("There are currently no fish in our world.");
         }
+        return numberOfFish;
     }
 
-    public static void displayBirdsCount() {
-        if (numberOfBirds > 1) {
-            System.out.println("There are currently " + numberOfBirds + " birds in our world.");
-        } else if (numberOfBirds == 1) {
-            System.out.println("There is currently " + numberOfBirds + " bird in our world.");
+    public static int getNumberOfBirds() {
+        if (numberOfBirds == 1) {
+            System.out.println("There is currently 1 bird in our world.");
         } else {
-            System.out.println("There are currently no birds in our world.");
+            System.out.println("There are currently " + numberOfBirds + " birds in our world.");
         }
+        return numberOfBirds;
     }
 }
