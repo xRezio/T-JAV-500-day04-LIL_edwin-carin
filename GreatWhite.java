@@ -1,15 +1,13 @@
 public class GreatWhite extends Shark {
-    public GreatWhite(String name) {
-        super(name);
-    }
 
-    @Override
-    public boolean canEat(Animal animal) {
-        if (animal instanceof Canary) return false;
-        return super.canEat(animal);
-    }
+  public GreatWhite(String name) {
+    super(name);
+  }
 
-
+  @Override
+  public boolean canEat(Animal animal) {
+    return super.canEat(animal) && !(animal instanceof Canary);
+  }
     @Override
     public void eat(Animal animal) {
         if (animal instanceof Canary) {
