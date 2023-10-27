@@ -1,10 +1,11 @@
 public class BlueShark extends Shark {
-    public BlueShark(String name) {
-        super(name);
-    }
+  public BlueShark(String name) {
+      super(name);
+  }
 
-    @Override
-    public boolean canEat(Animal animal) {
-        return animal instanceof Fish;
-    }
+  @Override
+  public boolean canEat(Animal animal) {
+      if (!super.canEat(animal)) return false;
+      return animal instanceof Shark;
+  }
 }
